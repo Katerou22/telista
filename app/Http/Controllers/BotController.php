@@ -11,7 +11,6 @@
 		public function message() {
 			//			$last_update = collect(Telegram::getUpdates())->reverse()->first();
 			$last_update = Telegram::getWebhookUpdates();
-			logger($last_update);
 			$text = $last_update->getMessage()->getText();
 			$sender = $last_update->getMessage()->getFrom();
 
@@ -192,7 +191,7 @@
 
 				$response = Telegram::sendPhoto([
 					                                'chat_id'      => $sender->getId(),
-					                                'photo'        => 'https://www.bhphotovideo.com/images/images2000x2000/test1.jpg',
+					                                'photo'        => 'https://noha.jostana.com/test1.jpg',
 					                                'caption'      => 'خب حالا این عکس رو پست کن و بزار یکروز بمونه  بعدش ۱۰۰ تا فالوورتو میگیری، بعد از یکروز میتونی پاکش کنی.
 					                                اینو بدون من هر ساعت اکانتتو چک میکنم پس در طول روز پاکش نکن.
 					                                آخرین پستت باید این عکس باشه.
