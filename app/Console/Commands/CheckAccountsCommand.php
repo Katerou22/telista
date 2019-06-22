@@ -12,6 +12,7 @@
 		protected $signature = 'check:account';
 
 		public function handle() {
+			logger('Working');
 			$accs = Account::all();
 			$username = 'therealktr22';
 			$password = '---LOL---';
@@ -91,6 +92,8 @@
 						                       'amount'         => 100,
 						                       'current_value'  => $ig->people->getInfoById($acc->instagram_id)->getUser()->getFollowerCount(),
 					                       ]);
+					$acc->has_photo = FALSE;
+					$acc->save();
 					$photo->status = 'ordered_init';
 					$photo->save();
 				}
