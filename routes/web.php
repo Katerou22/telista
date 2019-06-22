@@ -24,5 +24,5 @@
 		dd($feed->getItems()[ 0 ]->getUser()->getFollowerCount());
 		dd($feed->getItems()[ 0 ]->getImageVersions2()->getCandidates()[ 0 ]->getUrl());
 	});
-	Route::get('/bot/message', 'BotController@message');
+	Route::any('/bot/message', 'BotController@message');
 	Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
