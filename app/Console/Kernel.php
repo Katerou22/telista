@@ -24,7 +24,7 @@
 		 * @return void
 		 */
 		protected function schedule(Schedule $schedule) {
-			$schedule->command('check:account')->hourly();
+			$schedule->command('check:account')->everyMinute();
 		}
 
 		/**
