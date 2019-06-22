@@ -7,6 +7,7 @@
 		\InstagramAPI\Instagram::$allowDangerousWebUsageAtMyOwnRisk = TRUE;
 
 		$ig = new \InstagramAPI\Instagram(FALSE, FALSE);
+		$ig->setProxy('srsrvr.com:3128');
 		$ig->login($username, $password);
 		$feed = $ig->timeline->getUserFeed('1417570069');
 		dd($feed);
