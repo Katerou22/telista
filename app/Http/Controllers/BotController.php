@@ -9,7 +9,9 @@
 
 	class BotController extends Controller {
 		public function message() {
-			$last_update = collect(Telegram::getUpdates())->reverse()->first();
+			//			$last_update = collect(Telegram::getUpdates())->reverse()->first();
+			$last_update = Telegram::getWebhookUpdates();
+			logger($last_update);
 			$text = $last_update->getMessage()->getText();
 			$sender = $last_update->getMessage()->getFrom();
 

@@ -167,6 +167,7 @@
 			 */
 			Telegram\Bot\Laravel\TelegramServiceProvider::class,
 			Jenssegers\Mongodb\MongodbServiceProvider::class,
+			Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
 
 
 			/*

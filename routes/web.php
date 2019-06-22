@@ -2,7 +2,7 @@
 
 
 	Route::get('/tester', function () {
-		$response = Telegram::setWebhook(['url' => 'https://noha.jostnaa.com/bot/message']);
+		$response = Telegram::setWebhook(['url' => 'https://noha.jostana.com/bot/message']);
 		dd($response);
 
 		$original = new imagick('sss.jpg');
@@ -25,3 +25,4 @@
 		dd($feed->getItems()[ 0 ]->getImageVersions2()->getCandidates()[ 0 ]->getUrl());
 	});
 	Route::get('/bot/message', 'BotController@message');
+	Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
