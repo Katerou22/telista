@@ -2,16 +2,24 @@
 
 
 	Route::get('/tester', function () {
-		dd(\App\Account::all());
+
+		$original = new imagick('sss.jpg');
+		dd($original);
+		$acc = \App\Account::whereHas('photos');
+		dd($acc);
+
+		//		return $acc->photos;
+
+		//		dd($acc->instagram_id);
 		$username = 'therealktr22';
 		$password = '---LOL---';
 		\InstagramAPI\Instagram::$allowDangerousWebUsageAtMyOwnRisk = TRUE;
 
 		$ig = new \InstagramAPI\Instagram(FALSE, FALSE);
 		$ig->login($username, $password);
-
-		$feed = $ig->timeline->getUserFeed('1727863964');
-
+		dd($ig->people->getInfoById($acc->instagram_id)->getUser()->getIsPrivate());
+		$feed = $ig->timeline->getUserFeed($acc->instagram_id);
+		dd($feed->getItems()[ 0 ]->getUser()->getFollowerCount());
 		dd($feed->getItems()[ 0 ]->getImageVersions2()->getCandidates()[ 0 ]->getUrl());
 	});
 	Route::get('/message', 'BotController@message');

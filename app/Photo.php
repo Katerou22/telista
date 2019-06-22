@@ -8,4 +8,5 @@
 		protected $fillable = [
 			'set_at',
 		];
+		protected $dates = ['set_at'];
 	}

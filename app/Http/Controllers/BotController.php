@@ -43,10 +43,12 @@
 		}
 
 		public function error($text, $sender, $user) {
-			$message = 'شرمنده، متنی بنویس که بفهمم.';
+			$message = 'برای دریافت ۱۰۰ عدد فالوور از دستور /follower استفاده کنید.';
 			$response = Telegram::sendMessage([
-				                                  'chat_id' => $sender->getId(),
-				                                  'text'    => $message,
+				                                  'chat_id'      => $sender->getId(),
+				                                  'text'         => $message,
+				                                  'reply_markup' => Telegram::replyKeyboardHide(),
+
 			                                  ]);
 
 			$user->state = 'start';
@@ -129,15 +131,12 @@
 
 			$fullname = $output->full_name;
 			$follower_count = $output->follower_count;
-			$following_count = $output->following_count;
 			$is_private = $output->is_private ? 'پرایوت' : 'غیر پرایوت';
 
 
 			$caption = "اکانتت همینه؟ تایید میکنی؟
 			نام:$fullname
 			تعداد فالوور:$follower_count
-			تعداد فالوینگ:$following_count
-			وضعیت شخصی:$is_private
 			";
 
 			$keyboard = [
@@ -191,7 +190,7 @@
 
 				$response = Telegram::sendPhoto([
 					                                'chat_id'      => $sender->getId(),
-					                                'photo'        => 'https://www.bhphotovideo.com/images/images2000x2000/Savage_V01_0920_Infinity_Vinyl_Background_579262.jpg',
+					                                'photo'        => 'https://www.bhphotovideo.com/images/images2000x2000/test1.jpg',
 					                                'caption'      => 'خب حالا این عکس رو پست کن و بزار یکروز بمونه  بعدش ۱۰۰ تا فالوورتو میگیری، بعد از یکروز میتونی پاکش کنی.
 					                                اینو بدون من هر ساعت اکانتتو چک میکنم پس در طول روز پاکش نکن.
 					                                آخرین پستت باید این عکس باشه.
@@ -205,6 +204,7 @@
 
 				$account->photos()->create([
 					                           'set_at' => now(),
+					                           'status' => 'init',
 				                           ]);
 				$user->state = 'start';
 				$user->memory = NULL;

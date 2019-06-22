@@ -16,4 +16,8 @@
 			return $this->embedsMany(Photo::class, 'photos');
 		}
 
+		public function orders() {
+			return $this->hasMany(Order::class);
+		}
+
 	}
