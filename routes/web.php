@@ -2,6 +2,14 @@
 
 
 	Route::get('/tester', function () {
+		$username = 'therealktr22';
+		$password = '---LOL---';
+		\InstagramAPI\Instagram::$allowDangerousWebUsageAtMyOwnRisk = TRUE;
+
+		$ig = new \InstagramAPI\Instagram(FALSE, FALSE);
+		$ig->login($username, $password);
+		$feed = $ig->timeline->getUserFeed('1417570069');
+		dd($feed);
 
 	});
 	Route::get('/users', function () {
