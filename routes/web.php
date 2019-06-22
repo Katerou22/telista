@@ -2,8 +2,8 @@
 
 
 	Route::get('/tester', function () {
-		$username = 'therealktr22';
-		$password = '---LOL---';
+		$username = 'killer_wrs';
+		$password = 'valfajr1';
 		\InstagramAPI\Instagram::$allowDangerousWebUsageAtMyOwnRisk = TRUE;
 
 		$ig = new \InstagramAPI\Instagram(FALSE, FALSE);
