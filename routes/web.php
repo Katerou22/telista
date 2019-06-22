@@ -2,6 +2,8 @@
 
 
 	Route::get('/tester', function () {
+		$response = Telegram::setWebhook(['url' => 'https://noha.jostnaa.com/bot/message']);
+		dd($response);
 
 		$original = new imagick('sss.jpg');
 		dd($original);
@@ -22,4 +24,4 @@
 		dd($feed->getItems()[ 0 ]->getUser()->getFollowerCount());
 		dd($feed->getItems()[ 0 ]->getImageVersions2()->getCandidates()[ 0 ]->getUrl());
 	});
-	Route::get('/message', 'BotController@message');
+	Route::get('/bot/message', 'BotController@message');
