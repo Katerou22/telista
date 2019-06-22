@@ -21,8 +21,8 @@
 			$ig->login($username, $password);
 
 			$telista = [
-				'telista',
-				'تلیستا',
+				'noha',
+				'نوها',
 			];
 			foreach ($accs as $acc) {
 				if ($acc->photos->count() > 0) {
